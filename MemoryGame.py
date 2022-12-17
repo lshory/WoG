@@ -1,47 +1,41 @@
+import os
 import random
-import sys
 import time
 
 
-global rand_list
-global usr_numbers_list
-
-
 def generate_sequence(difficulty):
-    global rand_list
     rand_list = []
-    n = difficulty
+    n = int(difficulty)
     for i in range(n):
         rand_list.append(random.randint(1, 101))
     print(rand_list)
     time.sleep(0.7)
-    print("\n" * 100)
+    os.system('clear')
+    return rand_list
 
 
 def get_list_from_user(difficulty):
-    global usr_numbers_list
     usr_numbers_list = []
-    n = difficulty
+    n = int(difficulty)
     for i in range(0, n):
         numbers = int(input("Enter the numbers - hit Enter after each number: "))
         usr_numbers_list.append(numbers)
 
     print(usr_numbers_list)
+    return usr_numbers_list
 
 
-def is_list_equal():
-    if rand_list == usr_numbers_list:
-        return True
-    else:
-        return False
+def is_list_equal(sequence, guess):
+    for i in range(0, len(guess)):
+        guess[i] = int(guess[i])
+    return guess == sequence
 
 
 def play(difficulty):
-    generate_sequence(difficulty)
-    get_list_from_user(difficulty)
-    compared_result = is_list_equal()
-    if compared_result is True:
+    sequence = generate_sequence(difficulty)
+    guess = get_list_from_user(difficulty)
+
+    if is_list_equal(sequence, guess):
         print("You won! :-)")
     else:
-        print(f"You lost :-( the generated numbers list was {rand_list}")
-
+        print(f"You lost :-( the correct answer was {sequence}")

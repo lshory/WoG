@@ -13,26 +13,41 @@ def load_game():
 2. Guess Game - guess a number and see if you chose like the computer
 3. Currency Roulette - try and guess the value of a random amount of USD in ILS''')
 
-    game_num = int(input("Game number:"))
-    try:
-        if int(game_num) == 0 or int(game_num) > 3:
-            print("Sorry, game number doesn't exist")
-        elif 0 < int(game_num) <= 3:
-            difficulty = int(input("Please choose game difficulty from 1 to 5:"))
-            if 0 < int(difficulty) <= 5:
-                print("Greate! Let's Play!")
-            else:
-                print("Sorry, I don't understand your game difficulty")
-    except ValueError:
-        print("Sorry, I don't understand your game difficulty")
+    game_num = input("Game number:")
+    if game_num.isnumeric() is False:
+        print("Please enter a number")
+        load_game()
+    elif 4 > int(game_num) > 0:
+        return game_num
+    else:
+        print("Sorry, game number:", game_num, "doesn't exist, please choose from the existing options")
 
-    if game_num == 1:
+
+def game_difficulty():
+    difficulty = input("Please choose game difficulty from 1 to 5:")
+    if difficulty.isnumeric() is False:
+        print("Please enter a number")
+    elif 6 > int(difficulty) > 0:
+        print("Difficulty level: ", difficulty, "Greate! Let's Play!")
+        return difficulty
+    else:
+        print("Sorry, I don't understand your game difficulty", difficulty, "please choose from the existing options")
+
+
+def play(game_num, difficulty):
+    if game_num == '1':
         MemoryGame.play(difficulty)
-    elif game_num == 2:
+    elif game_num == '2':
         GuessGame.play(difficulty)
-    elif game_num == 3:
+    elif game_num == '3':
         CurrencyRouletteGame.play(difficulty)
 
-    return difficulty
+    return int(difficulty)
 
 
+def play_again():
+    check_play_again = input("Do you want to play again? (Y/N)")
+    if check_play_again.lower() == "y":
+        play(load_game(), game_difficulty())
+    else:
+        print("Ok, see you later")

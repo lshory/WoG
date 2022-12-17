@@ -1,4 +1,7 @@
-from Live import load_game, welcome
+from Live import *
 
 print(welcome("Lior"))
-load_game()
+game_num = load_game()
+difficulty = game_difficulty()
+play(game_num, difficulty)
+play_again()

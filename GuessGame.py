@@ -1,24 +1,19 @@
 from random import *
 
-global secret_number
-global guess
-
 
 def generate_number(difficulty):
-    global secret_number
-    secret_number = randint(1, difficulty)
+    secret_number = randint(1, int(difficulty))
     return secret_number
 
 
 def get_guess_from_user(difficulty):
-    global guess
     user_input = input(f"Enter your guess between 1 to {difficulty}:")
     guess = int(user_input)
     print(guess)
     return guess
 
 
-def compare_results():
+def compare_results(secret_number, guess):
     if secret_number == guess:
         return True
     else:
@@ -26,12 +21,10 @@ def compare_results():
 
 
 def play(difficulty):
-    generate_number(difficulty)
-    get_guess_from_user(difficulty)
-    compared_result = compare_results()
-    if compared_result is True:
+    secret_number = generate_number(difficulty)
+    guess = get_guess_from_user(difficulty)
+
+    if compare_results(secret_number, guess):
         print("You won! :-)")
     else:
-        print(f"You lost :-( the generated number was {secret_number}")
-
-
+        print(f"You lost :-( the correct answer was {secret_number}")
