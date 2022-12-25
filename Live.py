@@ -1,6 +1,7 @@
 import MemoryGame
 import GuessGame
 import CurrencyRouletteGame
+import Utils
 
 
 def welcome(name):
@@ -46,6 +47,7 @@ def play(game_num, difficulty):
 
 
 def play_again():
+    Utils.screen_cleaner()
     check_play_again = input("Do you want to play again? (Y/N)")
     if check_play_again.lower() == "y":
         play(load_game(), game_difficulty())
