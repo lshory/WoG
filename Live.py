@@ -2,6 +2,7 @@ import MemoryGame
 import GuessGame
 import CurrencyRouletteGame
 import Utils
+from Score import add_score
 
 
 def welcome(name):
@@ -38,18 +39,24 @@ def game_difficulty():
 def play(game_num, difficulty):
     if game_num == '1':
         MemoryGame.play(difficulty)
+        if bool(GuessGame) is True:
+            add_score(difficulty)
     elif game_num == '2':
         GuessGame.play(difficulty)
+        if bool(GuessGame) is True:
+            add_score(difficulty)
     elif game_num == '3':
         CurrencyRouletteGame.play(difficulty)
+        if bool(GuessGame) is True:
+            add_score(difficulty)
 
     return int(difficulty)
 
 
 def play_again():
-    Utils.screen_cleaner()
     check_play_again = input("Do you want to play again? (Y/N)")
     if check_play_again.lower() == "y":
         play(load_game(), game_difficulty())
+        Utils.screen_cleaner()
     else:
         print("Ok, see you later")

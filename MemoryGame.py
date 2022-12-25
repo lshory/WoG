@@ -40,5 +40,7 @@ def play(difficulty):
 
     if is_list_equal(sequence, guess):
         print("You won! :-)")
+        return True
     else:
         print(f"You lost :-( the correct answer was {sequence}")
+        return False

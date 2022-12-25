@@ -26,5 +26,7 @@ def play(difficulty):
 
     if compare_results(secret_number, guess):
         print("You won! :-)")
+        return True
     else:
         print(f"You lost :-( the correct answer was {secret_number}")
+        return False
