@@ -2,6 +2,8 @@ import os
 import random
 import time
 
+import Utils
+
 
 def generate_sequence(difficulty):
     rand_list = []
@@ -10,7 +12,8 @@ def generate_sequence(difficulty):
         rand_list.append(random.randint(1, 101))
     print(rand_list)
     time.sleep(0.7)
-    os.system('clear')
+    Utils.screen_cleaner()
+
     return rand_list
 
 
@@ -37,5 +40,7 @@ def play(difficulty):
 
     if is_list_equal(sequence, guess):
         print("You won! :-)")
+        return True
     else:
         print(f"You lost :-( the correct answer was {sequence}")
+        return False
