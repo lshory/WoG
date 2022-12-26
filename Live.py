@@ -39,7 +39,7 @@ def game_difficulty():
 def play(game_num, difficulty):
     if game_num == '1':
         MemoryGame.play(difficulty)
-        if bool(GuessGame) is True:
+        if bool(MemoryGame) is True:
             add_score(difficulty)
     elif game_num == '2':
         GuessGame.play(difficulty)
@@ -47,7 +47,7 @@ def play(game_num, difficulty):
             add_score(difficulty)
     elif game_num == '3':
         CurrencyRouletteGame.play(difficulty)
-        if bool(GuessGame) is True:
+        if bool(CurrencyRouletteGame) is True:
             add_score(difficulty)
 
     return int(difficulty)
