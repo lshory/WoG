@@ -1,12 +1,11 @@
-import MemoryGame
-import GuessGame
-import CurrencyRouletteGame
+from Games import MemoryGame, CurrencyRouletteGame, GuessGame
 import Utils
 from Score import add_score
 
 
-def welcome(name):
-    print(f"Hello {name} and welcome to the World of Games (WoG). \nHere you can find many cool games to play.")
+def welcome():
+    name = input("Please enter your name: ")
+    print(f"Hello {name} and welcome to the World of Games (WoG). \nHere you can find many cool games to play.\n")
 
 
 def load_game():
