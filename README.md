@@ -6,9 +6,9 @@ This was created as part of a DevOps course.
 To get started, simply clone the repository and run the main script:
 
 ````` 
-git clone https://github.com/your_username/world-of-games.git
-cd world-of-games
-python main.py
+git clone https://github.com/lshory/WoG.git
+cd WoG
+python MainGame.py
 ````` 
 This will launch the main menu, from which you can select the game you want to play.
 
