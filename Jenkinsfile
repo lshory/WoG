@@ -8,7 +8,8 @@ pipeline {
         stage('checkout') {
             steps {
                 echo 'Clone Git Project Start'
-                git url: 'https://github.com/lshory/WoG.git'
+                git url: 'https://github.com/lshory/WoG.git', branch: 'main',
+                credentialsId: 'github_creds'
                 echo 'Clone Git Project Done'
                 }
             }   
