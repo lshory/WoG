@@ -15,7 +15,7 @@ pipeline {
             }   
         stage('build docker image') {
             steps {
-                sh 'docker-compose build'
+                sh '/usr/local/bin/docker-compose build'
                 echo "Build Docker Image completed"
             }
             }
