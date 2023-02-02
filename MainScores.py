@@ -1,6 +1,5 @@
 from Utils import *
 from flask import Flask
-
 app = Flask(__name__)
 
 
@@ -32,5 +31,11 @@ def score_server():
             </body>
         </html>"""
 
+        return message
 
-app.run(debug=True)
+
+# app.run(debug=True)
+# app.run(host='localhost', port=5000, debug=False)
+app.run(host="127.0.0.1", port=5000, debug=True)
+
+

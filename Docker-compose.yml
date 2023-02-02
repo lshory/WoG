@@ -1,0 +1,9 @@
+version: "3.3"
+services:
+  web:
+    image: liorshory/world_of_games
+    container_name: WoG
+    build: .
+    ports:
+      - "80:80"
+
