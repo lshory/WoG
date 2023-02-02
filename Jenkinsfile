@@ -28,6 +28,7 @@ pipeline {
             }
         stage('test') {
             steps {
+                sh "pip install selenium"
                 sh 'python3 e2e.py'
                 echo "Test PASSED"
             }
