@@ -15,8 +15,13 @@ pipeline {
             }   
         stage('build docker image') {
             steps {
-                sh 'docker-compose build'
-                echo "Build Docker Image completed"
+                script {
+                    if (isUnix()==true){
+                        sh 'docker-compose build'
+                        echo "Build Docker Image completed"
+                    }
+                // sh 'docker-compose build'
+                // echo "Build Docker Image completed"
             }
             }
         stage('docker run') {
