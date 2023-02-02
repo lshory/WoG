@@ -43,7 +43,7 @@ pipeline {
             }
         stage('docker login') {
             steps {
-                sh 'docker login -u $DOCKERHUB_USR -p $DOCKERHUB_PSW'
+                sh 'docker login -u $DOCKERHUB_USR -p $DOCKERHUB_PSW --password-stdin'
             }
             }
         stage('push image') {
