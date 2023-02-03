@@ -3,4 +3,4 @@ WORKDIR /app
 COPY ./Scores.txt /app/
 RUN pip install Flask
 EXPOSE 8080
-CMD python MainScores.py
+CMD python3 MainScores.py
