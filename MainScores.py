@@ -36,6 +36,6 @@ def score_server():
 
 # app.run(debug=True)
 # app.run(host='localhost', port=5000, debug=False)
-app.run(host="127.0.0.1", port=5000, debug=True)
+app.run(host="127.0.0.1", port=8777, debug=True)
 
 
