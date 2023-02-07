@@ -52,6 +52,7 @@ pipeline {
             }
         stage('push image') {
             steps {
+                sh 'docker tag liorshory/world_of_games liorshory/world_of_games'
                 sh 'docker push liorshory/world_of_games'
             }
             }                        
