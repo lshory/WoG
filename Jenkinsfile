@@ -48,8 +48,8 @@ pipeline {
         stage('docker login') {
             steps {
                 // sh 'docker login -u $DOCKERHUB_USR -p $DOCKERHUB_PSW --password-stdin'
-                // sh '$DOCKERHUB_PSW | docker login -u $DOCKERHUB_USR --password-stdin'
-                echo '$DOCKERHUB_PSW | docker login -u $DOCKERHUB_USR --password-stdin'
+                sh '$DOCKERHUB_PSW | docker login -u $DOCKERHUB_USR --password-stdin'
+                // echo '$DOCKERHUB_PSW | docker login -u $DOCKERHUB_USR --password-stdin'
             }
             }
         stage('push image') {
