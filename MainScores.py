@@ -19,7 +19,7 @@ def score_server():
         print(f'This is your Final Score: {score_file}')
 
         return message
-    except BaseException:
+    except BaseException as e:
         message = f"""
         <html>
             <head>
@@ -27,15 +27,17 @@ def score_server():
             </head>
             <body>
             <body>
-                <h1><div id="score" style="color:red">{BAD_RETURN_CODE}</div></h1>
+                <h1><div id="score" style="color:red">{BAD_RETURN_CODE, e}</div></h1>
             </body>
         </html>"""
+
+        print("An exception occurred:", e)
 
         return message
 
 
 # app.run(debug=True)
 # app.run(host='localhost', port=5000, debug=False)
-app.run(host="127.0.0.1", port=8777, debug=True)
+app.run(host="0.0.0.0", port=8777, debug=True)
 
 
